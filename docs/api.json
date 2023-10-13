@@ -75,101 +75,6 @@
             }
           }
         }
-      },
-      "put": {
-        "tags": ["Transaction Extension"],
-        "summary": "Update Item",
-        "description": "Endpoint.",
-        "operationId": "Update_Item_collections__collection_id__items__item_id__put",
-        "parameters": [
-          {
-            "description": "Collection ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Collection Id",
-              "description": "Collection ID"
-            },
-            "name": "collection_id",
-            "in": "path"
-          },
-          {
-            "description": "Item ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Item Id",
-              "description": "Item ID"
-            },
-            "name": "item_id",
-            "in": "path"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/Item" }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Transaction Extension"],
-        "summary": "Delete Item",
-        "description": "Endpoint.",
-        "operationId": "Delete_Item_collections__collection_id__items__item_id__delete",
-        "parameters": [
-          {
-            "description": "Collection ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Collection Id",
-              "description": "Collection ID"
-            },
-            "name": "collection_id",
-            "in": "path"
-          },
-          {
-            "description": "Item ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Item Id",
-              "description": "Item ID"
-            },
-            "name": "item_id",
-            "in": "path"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
       }
     },
     "/stac/search": {
@@ -299,62 +204,6 @@
             "content": { "application/json": { "schema": {} } }
           }
         }
-      },
-      "put": {
-        "tags": ["Transaction Extension"],
-        "summary": "Update Collection",
-        "description": "Endpoint.",
-        "operationId": "Update_Collection_collections_put",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { "type": "object", "title": "Request Data" }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": ["Transaction Extension"],
-        "summary": "Create Collection",
-        "description": "Endpoint.",
-        "operationId": "Create_Collection_collections_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { "type": "object", "title": "Request Data" }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
       }
     },
     "/stac/collections/{collection_id}": {
@@ -362,39 +211,6 @@
         "summary": "Get Collection",
         "description": "Endpoint.",
         "operationId": "Get_Collection_collections__collection_id__get",
-        "parameters": [
-          {
-            "description": "Collection ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Collection Id",
-              "description": "Collection ID"
-            },
-            "name": "collection_id",
-            "in": "path"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Transaction Extension"],
-        "summary": "Delete Collection",
-        "description": "Endpoint.",
-        "operationId": "Delete_Collection_collections__collection_id__delete",
         "parameters": [
           {
             "description": "Collection ID",
@@ -480,52 +296,6 @@
             }
           }
         }
-      },
-      "post": {
-        "tags": ["Transaction Extension"],
-        "summary": "Create Item",
-        "description": "Endpoint.",
-        "operationId": "Create_Item_collections__collection_id__items_post",
-        "parameters": [
-          {
-            "description": "Collection ID",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Collection Id",
-              "description": "Collection ID"
-            },
-            "name": "collection_id",
-            "in": "path"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "anyOf": [
-                  { "$ref": "#/components/schemas/Item" },
-                  { "$ref": "#/components/schemas/ItemCollection" }
-                ],
-                "title": "Item"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
       }
     },
     "/stac/queryables": {
@@ -542,7 +312,7 @@
         }
       }
     },
-    "/stac/collections/{collection_id}/stac/queryables": {
+    "/stac/collections/{collection_id}/queryables": {
       "get": {
         "tags": ["Filter Extension"],
         "summary": "Collection Queryables",
@@ -573,57 +343,6 @@
                 "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
               }
             }
-          }
-        }
-      }
-    },
-    "/stac/collections/{collection_id}/bulk_items": {
-      "post": {
-        "tags": ["Bulk Transaction Extension"],
-        "summary": "Bulk Create Item",
-        "description": "Endpoint.",
-        "operationId": "Bulk_Create_Item_collections__collection_id__bulk_items_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/Items" }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "string",
-                  "title": "Response Bulk Create Item Collections  Collection Id  Bulk Items Post"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": { "$ref": "#/components/schemas/HTTPValidationError" }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/_mgmt/ping": {
-      "get": {
-        "tags": ["Liveliness/Readiness"],
-        "summary": "Ping",
-        "description": "Liveliness/readiness probe.",
-        "operationId": "ping__mgmt_ping_get",
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": { "application/json": { "schema": {} } }
           }
         }
       }
