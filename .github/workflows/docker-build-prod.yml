@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: Dockerfile.custom
+          file: Dockerfile
           cache-from: type=registry,ref=${{ secrets.EO_PROJ_PROD_DOCKER_REGISTRY_URL }}/stac-fastapi-pgstac-apim-documentation:cache
           cache-to: type=registry,ref=${{ secrets.EO_PROJ_PROD_DOCKER_REGISTRY_URL }}/stac-fastapi-pgstac-apim-documentation:cache,mode=max
           push: true
